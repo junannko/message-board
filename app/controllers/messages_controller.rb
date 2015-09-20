@@ -11,8 +11,12 @@ class MessagesController < ApplicationController
     redirect_to root_path , notice:'メッセージを保存しました'
   end
   
+  # ここから下はprivateメソッドとなる
   private
   def message_params
+    
+    # params[:message]のパラメータで name , bodyのみを許可する。
+    # 返り値は ex:) {name: "入力されたname" , body: "入力されたbody" }
     params.require(:message).permit(:name , :body)
   end
   ##ここまで
