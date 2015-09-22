@@ -14,7 +14,7 @@ class MessagesController < ApplicationController
      redirect_to root_path , notice:'メッセージを保存しました。'
     else
       #メッセージが保存できなかった場合
-      @messages=Message.all
+      @messages = Message.all
       flash.now[:alert]="メッセージの保存に失敗しました。"
       render 'index'
     end
@@ -43,15 +43,15 @@ class MessagesController < ApplicationController
   private
   def message_params
     
-    # params[:message]のパラメータで name , bodyのみを許可する。
-    # 返り値は ex:) {name: "入力されたname" , body: "入力されたbody" }
-    params.require(:message).permit(:name , :body)
+    # params[:message]のパラメータで name , body , ageのみを許可する。
+    # 返り値は ex:) {name: "入力されたname" , body: "入力されたbody", age: "入力されたage"}
+    params.require(:message).permit(:name , :body , :age)
   end
   ##ここまで
   
   
   def set_message
-    @message=Message.find(params[:id])
+    @message = Message.find(params[:id])
   end
   
   

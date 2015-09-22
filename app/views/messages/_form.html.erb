@@ -13,14 +13,18 @@
 <% end %>
 
 
-<div class="container-fluid">
+<div class="container-fluid form-group">
     <div class="row">
         <div class="col-md-12">
-            <span class="glyphicon glyphicon-pencil"></span>名前
+            <span class="glyphicon glyphicon-pencil"></span><%= f.label :名前 %>
             <%= f.text_field :name , class: "form-control" , placeholder: "name input" %>
         </div>
         <div class="col-md-12">
-            <span class="glyphicon glyphicon-list-alt"></span>内容
+            <span class="glyphicon glyphicon-apple"></span><%= f.label :年齢 %>
+            <%= f.text_field :age , class: "form-control" , placeholder: "age input" %>
+        </div>
+        <div class="col-md-12">
+            <span class="glyphicon glyphicon-list-alt"></span><%= f.label :内容 %>
             <%= f.text_area :body , class: "form-control" , rows: "3" ,  placeholder: "text input" %>
         </div>
         <div class="col-md-12">
@@ -44,5 +48,11 @@
     
     .panel-body{
         line-height: 200%;
+    }
+    
+    .label-age{
+        background: #ddd;
+        font-weight: normal;
+        color: #333;
     }
 </style>
